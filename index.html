@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Page Navigation</title>
+  <link href="https://fonts.googleapis.com/css?family=Hind" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css" media="screen" charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+  <h1 style="margin: 350px 0;">This is content above.</h1>
+
+  <div class="inner-wrapper">
+
+      <div class="page-navigator__nav-wrapper">
+        <ul class="page-navigator__nav">
+          <li class="page-navigator__nav__item" data-page-navigator-section="0"><a href="#section1">Section 1</a></li>
+          <li class="page-navigator__nav__item" data-page-navigator-section="1"><a href="#section2">Section 2</a></li>
+          <li class="page-navigator__nav__item" data-page-navigator-section="2"><a href="#section3">Section 3</a></li>
+          <li class="page-navigator__nav__item" data-page-navigator-section="3"><a href="#section4">Section 4</a></li>
+        </ul>
+      </div>
+
+      <div id="section1" class="section  section--one  js-page-navigator__section" data-page-navigator-section="0">
+        <h1>SECTION 1</h1>
+      </div>
+      <div id="section2" class="section  section--two  js-page-navigator__section" data-page-navigator-section="1">
+        <h1>SECTION 2</h1>
+      </div>
+      <div id="section3" class="section  section--three  js-page-navigator__section" data-page-navigator-section="2">
+        <h1>SECTION 3</h1>
+      </div>
+      <div id="section4" class="section  section--four  js-page-navigator__section" data-page-navigator-section="3">
+        <h1>SECTION 4</h1>
+      </div>
+    </div>
+
+  <h2 style="margin: 350px 0;">This is content below.</h2>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="assets/js/modernizr-mq.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js" charset="utf-8"></script>
+  <script src="assets/js/main.js" charset="utf-8"></script>
+</body>
+
+</html>
