@@ -6,19 +6,8 @@
 }
 
 .inview-navigator__nav {
-  -webkit-transform: translate3d(0px,0px,0px);
-  -webkit-backface-visibility: hidden;
-  width: 100%;
-  max-width: inherit;
-  border-collapse: collapse;
   background-color: #e6e6e6;
-  margin: 0;
-  padding: 0;
-  z-index: 10;
   height: 50px;
-  overflow: hidden;
-  position: relative;
-  list-style: none;
 }
 
 .inview-navigator__nav::after {
@@ -43,14 +32,14 @@
 .inview-navigator__nav.is-sticking {}
 
 .inview-navigator__nav__item {
-  transition: background-color .25s ease-in-out;
+  /*transition: background-color .25s ease-in-out;
   padding: 0;
   cursor: pointer;
   text-align: right;
   padding: 0 1em;
   padding-right: 2em;
   width: 100%;
-  position: relative;
+  position: relative;*/
 }
 
 .inview-navigator__nav__item a {
