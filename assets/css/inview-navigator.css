@@ -1,70 +1,8 @@
-* {
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-}
-
-html, body {
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  font-size: 16px;
-  text-align: center;
-  font-family: 'Hind', sans-serif;
-}
-
-.inner-wrapper {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+.inview-navigator__nav-wrapper {
   position: relative;
 }
 
-.section {
-  width: 100%;
-  height: 640px;
-  position: relative;
-}
-
-.page-navigator__nav__item.is-active {
-  background-color: #aaaaaa !important;
-}
-
-.section h1 {
-  color: #333;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  text-align: center;
-  transform: translate(-50%, -50%);
-}
-
-.section--one {
-  border-top: none;
-  background-color: #2ecc71;
-}
-
-.section--two {
-  background-color: #666666;
-}
-
-.section--three {
-  background-color: #e74c3c;
-}
-
-.section--four {
-  background-color: #3498db;
-}
-
-.page-navigator__nav-wrapper {
-  width: inherit;
-  min-height: 50px;
-  max-width: 1200px;
-  position: relative;
-  background-color: #e6e6e6;
-}
-
-.page-navigator__nav {
+.inview-navigator__nav {
   -webkit-transform: translate3d(0px,0px,0px);
   -webkit-backface-visibility: hidden;
   width: 100%;
@@ -80,7 +18,7 @@ html, body {
   list-style: none;
 }
 
-.page-navigator__nav:after {
+.inview-navigator__nav::after {
   transition: transform .25s ease-in-out;
   content: "\203A";
   position: absolute;
@@ -95,11 +33,11 @@ html, body {
   pointer-events: none;
 }
 
-.page-navigator__nav.is-open:after {
+.inview-navigator__nav.is-open::after {
   transform: rotate(-90deg);
 }
 
-.page-navigator__nav.is-sticking {
+.inview-navigator__nav.is-sticking {
   position: fixed;
   top: 0;
   right: 0;
@@ -107,7 +45,7 @@ html, body {
   margin: auto;
 }
 
-.page-navigator__nav__item {
+.inview-navigator__nav__item {
   transition: background-color .25s ease-in-out;
   padding: 0;
   cursor: pointer;
@@ -118,7 +56,7 @@ html, body {
   position: relative;
 }
 
-.page-navigator__nav__item a {
+.inview-navigator__nav__item a {
   color: #000000;
   text-decoration: none;
   display: inline-block;
@@ -129,23 +67,23 @@ html, body {
   height: 50px;
 }
 
-.page-navigator__nav__item:hover {
+.inview-navigator__nav__item:hover {
   background-color: rgba(255,255,255,.35);
 }
 
 
 @media (min-width: 768px) {
-  .page-navigator__nav {
+  .inview-navigator__nav {
     display: table;
     table-layout: fixed;
     padding: 0;
   }
 
-  .page-navigator__nav:after {
+  .inview-navigator__nav::after {
     display: none;
   }
 
-  .page-navigator__nav__item {
+  .inview-navigator__nav__item {
     display: table-cell;
     vertical-align: middle;
     text-align: center;

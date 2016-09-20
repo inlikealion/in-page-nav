@@ -3,10 +3,69 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Page Navigation</title>
-  <link href="https://fonts.googleapis.com/css?family=Hind" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/main.css" media="screen" charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inview Navigator</title>
+  <link href="https://fonts.googleapis.com/css?family=Hind" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/inview-navigator.css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="assets/css/inview-navigator.theme.css" media="screen" charset="utf-8">
+
+  <style media="screen">
+    * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      font-size: 16px;
+      text-align: center;
+      font-family: 'Hind', sans-serif;
+    }
+
+    .inner-wrapper {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .section {
+      width: 100%;
+      height: 640px;
+      position: relative;
+    }
+
+    .section h1 {
+      color: #333;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      text-align: center;
+      transform: translate(-50%, -50%);
+    }
+
+    .section--one {
+      border-top: none;
+      background-color: #2ecc71;
+    }
+
+    .section--two {
+      background-color: #666666;
+    }
+
+    .section--three {
+      background-color: #e74c3c;
+    }
+
+    .section--four {
+      background-color: #3498db;
+    }
+  </style>
+
+  <script src="assets/js/modernizr-mq.js" charset="utf-8"></script>
 </head>
 
 <body>
@@ -15,25 +74,25 @@
 
   <div class="inner-wrapper">
 
-      <div class="page-navigator__nav-wrapper">
-        <ul class="page-navigator__nav">
-          <li class="page-navigator__nav__item" data-page-navigator-section="0"><a href="#section1">Section 1</a></li>
-          <li class="page-navigator__nav__item" data-page-navigator-section="1"><a href="#section2">Section 2</a></li>
-          <li class="page-navigator__nav__item" data-page-navigator-section="2"><a href="#section3">Section 3</a></li>
-          <li class="page-navigator__nav__item" data-page-navigator-section="3"><a href="#section4">Section 4</a></li>
+      <div class="inview-navigator__nav-wrapper">
+        <ul class="inview-navigator__nav">
+          <li class="inview-navigator__nav__item" data-inview-navigator-section="0"><a href="#section1">Section 1</a></li>
+          <li class="inview-navigator__nav__item" data-inview-navigator-section="1"><a href="#section2">Section 2</a></li>
+          <li class="inview-navigator__nav__item" data-inview-navigator-section="2"><a href="#section3">Section 3</a></li>
+          <li class="inview-navigator__nav__item" data-inview-navigator-section="3"><a href="#section4">Section 4</a></li>
         </ul>
       </div>
 
-      <div id="section1" class="section  section--one  js-page-navigator__section" data-page-navigator-section="0">
+      <div id="section1" class="section  section--one  js-inview-navigator__section" data-inview-navigator-section="0">
         <h1>SECTION 1</h1>
       </div>
-      <div id="section2" class="section  section--two  js-page-navigator__section" data-page-navigator-section="1">
+      <div id="section2" class="section  section--two  js-inview-navigator__section" data-inview-navigator-section="1">
         <h1>SECTION 2</h1>
       </div>
-      <div id="section3" class="section  section--three  js-page-navigator__section" data-page-navigator-section="2">
+      <div id="section3" class="section  section--three  js-inview-navigator__section" data-inview-navigator-section="2">
         <h1>SECTION 3</h1>
       </div>
-      <div id="section4" class="section  section--four  js-page-navigator__section" data-page-navigator-section="3">
+      <div id="section4" class="section  section--four  js-inview-navigator__section" data-inview-navigator-section="3">
         <h1>SECTION 4</h1>
       </div>
     </div>
@@ -41,9 +100,8 @@
   <h2 style="margin: 350px 0;">This is content below.</h2>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="assets/js/modernizr-mq.js" charset="utf-8"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js" charset="utf-8"></script>
-  <script src="assets/js/main.js" charset="utf-8"></script>
+  <script src="assets/js/inview-navigator.js" charset="utf-8"></script>
 </body>
 
 </html>
