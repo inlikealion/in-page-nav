@@ -1,6 +1,4 @@
-.inview-navigator__nav-wrapper {
-  position: relative;
-}
+.inview-navigator__nav-wrapper {}
 
 .inview-navigator__nav {
   -webkit-transform: translate3d(0px,0px,0px);
@@ -42,8 +40,15 @@
   position: fixed;
   top: 0;
   right: 0;
+  bottom: auto;
   left: 0;
   margin: auto;
+}
+
+.inview-navigator__nav.at-end {
+  position: absolute;
+  top: auto;
+  bottom: 0;
 }
 
 .inview-navigator__nav__item {
