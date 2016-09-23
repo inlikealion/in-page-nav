@@ -21,15 +21,15 @@ ryobiTools.components.inViewNavigator = ryobiTools.components.inViewNavigator ||
       $(this).find(".inview-navigator__nav-wrapper").attr("data-inview-navigator-id", navID);
       $(this).find(".inview-navigator__nav").attr("data-inview-navigator-id", navID);
 
-      ryobiTools.components.inViewNavigator.setStickyState(navID);
-      ryobiTools.components.inViewNavigator.setNavState(navID);
+      ryobiTools.components.inViewNavigator.setStickyState();
+      ryobiTools.components.inViewNavigator.setNavState();
 
       navID ++;
     });
   };
 
-  ryobiTools.components.inViewNavigator.setStickyState = function(navID) {
-    var navSection = $(".inview-navigator[data-inview-navigator-id='" + navID + "']");
+  ryobiTools.components.inViewNavigator.setStickyState = function() {
+    var navSection = $(".inview-navigator");
     var navWrapper = navSection.find(".inview-navigator__nav-wrapper");
     var navBar = navWrapper.find(".inview-navigator__nav");
     var navActiveItem = navWrapper.find(".inview-navigator__nav__item.is-active");
@@ -47,7 +47,7 @@ ryobiTools.components.inViewNavigator = ryobiTools.components.inViewNavigator ||
     }
   };
 
-  ryobiTools.components.inViewNavigator.setNavState = function(navID) {
+  ryobiTools.components.inViewNavigator.setNavState = function() {
     var scrollHeight = $(window).scrollTop();
     var navOffset = $(".inview-navigator__nav-wrapper").offset().top;
 
@@ -144,35 +144,28 @@ $(document).ready(function() {
   		BOUND EVENTS:
   \*-------------------*/
 
+  var scrollTimer;
+  var scrollInterval;
+  var intervalRunning = false;
   $(window).scroll(function() {
-    $(".inview-navigator__nav").each(function() {
-      var navID = $(this).attr("data-inview-navigator-id");
+    ryobiTools.components.inViewNavigator.setStickyState();
 
-      if (navID) {
-        var scrollTimer;
-        var scrollInterval;
-        var intervalRunning = false;
+    if ($(".inview-navigator__nav").hasClass("is-sticking")) {
+      clearTimeout(scrollTimer);
 
-        ryobiTools.components.inViewNavigator.setStickyState(navID);
-
-        if ($(this).hasClass("is-sticking")) {
-          clearTimeout(scrollTimer);
-
-          if (!intervalRunning) {
-            scrollInterval = setInterval(function() {
-              ryobiTools.components.inViewNavigator.setNavState(navID);
-            }, 100);
-            intervalRunning = true;
-          }
-
-          scrollTimer = setTimeout(function() {
-            clearInterval(scrollInterval);
-            ryobiTools.components.inViewNavigator.setNavState(navID);
-            intervalRunning = false;
-          }, 100);
-        }
+      if (!intervalRunning) {
+        scrollInterval = setInterval(function() {
+          ryobiTools.components.inViewNavigator.setNavState();
+        }, 100);
+        intervalRunning = true;
       }
-    });
+
+      scrollTimer = setTimeout(function() {
+        clearInterval(scrollInterval);
+        ryobiTools.components.inViewNavigator.setNavState();
+        intervalRunning = false;
+      }, 100);
+    }
   });
 
   $("body").on("click", ".inview-navigator__nav__item", function(event) {
