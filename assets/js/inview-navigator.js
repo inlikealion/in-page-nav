@@ -37,12 +37,12 @@ ryobiTools.components.inViewNavigator = ryobiTools.components.inViewNavigator ||
     var scrollHeight = $(window).scrollTop();
 
     if ((scrollHeight + 50) >= (navOffset + navSection.outerHeight())) {
-      navBar.addClass("at-end");
+      navSection.addClass("at-end");
     } else if (scrollHeight >= navOffset) {
-      navBar.removeClass("at-end");
-      navBar.addClass("is-sticking");
+      navSection.removeClass("at-end");
+      navSection.addClass("is-sticking");
     } else {
-      navBar.removeClass("is-sticking");
+      navSection.removeClass("is-sticking");
       navActiveItem.removeClass("is-active");
     }
   };
@@ -150,7 +150,7 @@ $(document).ready(function() {
   $(window).scroll(function() {
     ryobiTools.components.inViewNavigator.setStickyState();
 
-    if ($(".inview-navigator__nav").hasClass("is-sticking")) {
+    if ($(".inview-navigator").hasClass("is-sticking")) {
       clearTimeout(scrollTimer);
 
       if (!intervalRunning) {

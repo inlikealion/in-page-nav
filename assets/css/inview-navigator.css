@@ -10,8 +10,8 @@
   border-collapse: collapse;
   margin: 0;
   padding: 0;
-  z-index: 100;
-  height: 50px;
+  z-index: 120;
+  /*height: 50px;*/
   overflow: hidden;
   position: relative;
   list-style: none;
@@ -36,7 +36,7 @@
   transform: rotate(-90deg);
 }
 
-.inview-navigator__nav.is-sticking {
+.inview-navigator.is-sticking .inview-navigator__nav {
   position: fixed;
   top: 0;
   right: 0;
@@ -45,7 +45,7 @@
   margin: auto;
 }
 
-.inview-navigator__nav.at-end {
+.inview-navigator.at-end .inview-navigator__nav {
   position: absolute;
   top: auto;
   bottom: 0;
