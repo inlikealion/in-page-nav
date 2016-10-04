@@ -38,7 +38,7 @@
 
 .inview-navigator.is-sticking .inview-navigator__nav {
   position: fixed;
-  top: 0;
+  /*top: 0;*/
   right: 0;
   bottom: auto;
   left: 0;
