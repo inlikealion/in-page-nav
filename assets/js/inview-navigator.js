@@ -11,10 +11,6 @@ var ryobiTools = ryobiTools || {};
 ryobiTools.components = ryobiTools.components || {};
 ryobiTools.components.inViewNavigator = ryobiTools.components.inViewNavigator || {};
 
-// HELPERS
-var onMobile = Modernizr.mq('(max-width: 768px)');
-// var onMobile = $(window).width() < 768;
-
 
 (function($) {
 
@@ -41,7 +37,7 @@ var onMobile = Modernizr.mq('(max-width: 768px)');
     var scrollHeight = $(window).scrollTop();
     var optionalOffset = parseInt(inViewNavigator.attr("data-inview-navigator-offset"));
 
-    if (optionalOffset && !onMobile) {
+    if (optionalOffset && !Modernizr.mq('(max-width: 768px)')) {
       navOffset = navOffset - optionalOffset;
     }
 
@@ -51,7 +47,7 @@ var onMobile = Modernizr.mq('(max-width: 768px)');
     } else if (scrollHeight >= navOffset) {
       inViewNavigator.removeClass("at-end");
       inViewNavigator.addClass("is-sticking");
-      if (optionalOffset && !onMobile) {
+      if (optionalOffset && !Modernizr.mq('(max-width: 768px)')) {
         navBar.css("top", optionalOffset + "px");
       } else {
         navBar.css("top", "0");
@@ -69,7 +65,7 @@ var onMobile = Modernizr.mq('(max-width: 768px)');
     var navOffset = $(".inview-navigator__nav-wrapper").offset().top;
     var optionalOffset = parseInt(inViewNavigator.attr("data-inview-navigator-offset"));
 
-    if (optionalOffset && !onMobile) {
+    if (optionalOffset && !Modernizr.mq('(max-width: 768px)')) {
       navOffset = navOffset - optionalOffset;
     }
 
@@ -86,7 +82,7 @@ var onMobile = Modernizr.mq('(max-width: 768px)');
           var sectionTop = $(this).offset().top;
           var sectionBottom = sectionTop + $(this).outerHeight(true);
 
-          if (optionalOffset && !onMobile) {
+          if (optionalOffset && !Modernizr.mq('(max-width: 768px)')) {
             sectionTop = sectionTop - optionalOffset;
           }
 
@@ -114,7 +110,7 @@ var onMobile = Modernizr.mq('(max-width: 768px)');
   };
 
   ryobiTools.components.inViewNavigator.expandMobileMenu = function() {
-    if (onMobile) {
+    if (Modernizr.mq('(max-width: 768px)')) {
       var height = $(".inview-navigator__nav").children().length * 50;
       $(".inview-navigator__nav").addClass("is-open");
 
@@ -135,7 +131,7 @@ var onMobile = Modernizr.mq('(max-width: 768px)');
   };
 
   ryobiTools.components.inViewNavigator.collapseMobileMenu = function() {
-    if (onMobile) {
+    if (Modernizr.mq('(max-width: 768px)')) {
       $(".inview-navigator__nav").removeClass("is-open");
 
       $(".inview-navigator__nav").velocity("stop").velocity({
@@ -152,7 +148,7 @@ var onMobile = Modernizr.mq('(max-width: 768px)');
     var optionalOffset = parseInt(inViewNavigator.attr("data-inview-navigator-offset"));
     var section = $(".js-inview-navigator__section[data-inview-navigator-section='" + sectionID + "']");
 
-    if (onMobile) {
+    if (Modernizr.mq('(max-width: 768px)')) {
       section.velocity("stop").velocity("scroll");
     } else {
       section.velocity("stop").velocity("scroll", {
@@ -201,6 +197,10 @@ $(document).ready(function() {
         intervalRunning = false;
       }, 100);
     }
+  });
+
+  $(window).resize(function() {
+    ryobiTools.components.inViewNavigator.setStickyState();
   });
 
   $("body").on("click", ".inview-navigator__nav__item", function(event) {
